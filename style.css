@@ -8,6 +8,7 @@
 
 html{
     scroll-behavior: smooth;
+    max-width: 200vw;
 }
 
 body{
@@ -67,6 +68,65 @@ li{
 
 .nav_link--primary:hover{
     text-decoration: none;
+}
+
+.btn_menu{
+    background-color: transparent;
+    font-size: 40px;
+    text-align: center;
+    border: none;
+    color: rgb(172, 81, 198);
+    display:none
+}
+
+.menu_backdrop{
+    position: absolute;
+    background-color: #242424;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 500ms ease
+}
+
+.menu--open .menu_backdrop{
+    visibility:visible;
+    opacity: 1;
+}
+
+.menu--open{
+    max-height: 100vh;
+    overflow-y:hidden ;
+}
+
+.btn_menu--close{
+    position:absolute;
+    right:20px;
+    top: 10px;
+    padding: 8px;
+    color: white;
+}
+
+.menu_links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.menu_link{
+    color: white;
+    font-size: 40px;
+}
+
+.menu_list{
+    padding: 32px 0;
 }
 
 #Landing{
@@ -187,6 +247,7 @@ button:active{
 .highlight_wrapper{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .Highlight{
@@ -194,7 +255,6 @@ button:active{
     width: calc(100/3);
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -219,6 +279,7 @@ button:active{
 .highlight_subtitle{
     font-size: 20px;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 /*Feature */
@@ -345,4 +406,42 @@ a{
 
 a:hover{
     text-decoration: underline;
+}
+
+/*tablet*/
+@media (max-width:768px) {
+    .header_description{
+        padding: 0 24px;
+    }
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        font-size: 26px;
+    }
+    button{
+        font-size: 18px;
+    }
+    .book{
+        width: 50%;
+    }
+
+}
+
+
+
+/*small phone*/
+@media (max-width:550px) {
+    .nav_links{
+        display: none;
+    }
+    .btn_menu{
+        display: block;
+    }
+    .Highlight{
+        width: 100%;
+    }
+    .Highlight:not(:last-child){
+        margin-bottom: 24px;
+    }
 }
